@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do You Like Me?</title>
+  <style>
+    body {
+      background-color: #ffe6f2; /* light pink */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    img {
+      max-width: 250px;
+      height: auto;
+    }
+    h2 {
+      margin-top: 15px;
+      font-size: 28px;
+      color: black;
+      font-weight: bold;
+    }
+    .btn-container {
+      margin-top: 20px;
+      position: relative;
+      width: 300px;
+      height: 120px;
+    }
+    .btn {
+      padding: 12px 28px;
+      border: none;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+    .btn-yes {
+      background-color: #d63384; /* dark pink */
+      color: white;
+      font-weight: bold;
+    }
+    .btn-yes:hover {
+      background-color: #b02a6f;
+      transform: scale(1.1);
+    }
+    .btn-no {
+      background-color: white;
+      border: 2px solid #ccc;
+      color: black;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.2s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="hhh.gif" alt="Cute Image">
+  <h2>Do you like me ?</h2>
+
+  <div class="btn-container">
+    <button id="yesBtn" class="btn btn-yes">Yes</button>
+    <button id="noBtn" class="btn btn-no">No</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+
+    function moveButton() {
+      const container = noBtn.parentElement;
+      const containerWidth = container.offsetWidth - noBtn.offsetWidth;
+      const containerHeight = container.offsetHeight - noBtn.offsetHeight;
+
+      const newX = Math.floor(Math.random() * containerWidth);
+      const newY = Math.floor(Math.random() * containerHeight);
+
+      noBtn.style.left = `${newX}px`;
+      noBtn.style.top = `${newY}px`;
+    }
+
+    noBtn.addEventListener("mouseenter", moveButton);
+    noBtn.addEventListener("touchstart", moveButton);
+
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "first.html"; // seedha next page
+    });
+  </script>
+
+</body>
+</html>
+
+
